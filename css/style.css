@@ -11,3 +11,6 @@
   border-bottom: 3px solid #338ecf;
   background: #eee
 }
+.hidden{
+	display:none;
+}
