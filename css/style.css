@@ -1,0 +1,13 @@
+.tabContent {
+    display:none;
+}
+.nav li {
+  border-bottom: 3px solid rgba(1,1,1,1);
+}
+.nav li:hover {
+  border-bottom: 3px solid #ddd;
+}
+.nav li.active {
+  border-bottom: 3px solid #338ecf;
+  background: #eee
+}
