@@ -28,7 +28,8 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4/js/bootstrap.min.js"></script> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
   <body class="fixed-nav bg-dark" id="page-top">
@@ -109,6 +110,7 @@
     <!-- Custom scripts for this template -->
     <script src="js/sb-admin.min.js"></script>
     <script type="text/javascript" src="js/functions/navigate.js"></script>
+    <script type="text/javascript" src="js/functions/script.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
@@ -125,9 +127,10 @@ $(function () {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
-function toggler(divId) {
-    $("#" + divId).toggle();
-}
+// function toggler(divId) {
+//     $("#" + divId).toggle();
+// }
+
 </script>
   </body>
 
