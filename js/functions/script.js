@@ -1,6 +1,6 @@
 $(document).ready(function(){
         // $("#dash").show();
-		$("#meminfo").hide();
+		// $("#meminfo").hide();
         $("#attend").hide();
         $("#sched").hide();
         $("#salary").hide();
@@ -9,7 +9,7 @@ $(document).ready(function(){
 		$("#privacy").hide();
     
     $("#p1").click(function(){
-       $("#dash").hide();
+       // $("#dash").hide();
         $("#meminfo").show();
         $("#attend").hide();
         $("#sched").hide();
@@ -19,7 +19,7 @@ $(document).ready(function(){
         $("#privacy").hide();
     });
     $("#p2").click(function(){
-        $("#dash").hide();
+        // $("#dash").hide();
         $("#meminfo").hide();
         $("#attend").show();
         $("#sched").hide();
@@ -29,7 +29,7 @@ $(document).ready(function(){
         $("#privacy").hide();
     });
     $("#p3").click(function(){
-        $("#dash").hide();
+        // $("#dash").hide();
         $("#meminfo").hide();
         $("#attend").hide();
         $("#sched").show();
@@ -39,7 +39,7 @@ $(document).ready(function(){
         $("#privacy").hide();
     });
     $("#p4").click(function(){
-        $("#dash").hide();
+        // $("#dash").hide();
         $("#meminfo").hide();
         $("#attend").hide();
         $("#sched").hide();
@@ -49,7 +49,7 @@ $(document).ready(function(){
         $("#privacy").hide();
     });
     $("#p5").click(function(){
-        $("#dash").hide();
+        // $("#dash").hide();
         $("#meminfo").hide();
         $("#attend").hide();
         $("#sched").hide();
@@ -59,7 +59,7 @@ $(document).ready(function(){
         $("#privacy").hide();
     });
     $("#p6").click(function(){
-        $("#dash").hide();
+        // $("#dash").hide();
         $("#meminfo").hide();
         $("#attend").hide();
         $("#sched").hide();
@@ -69,7 +69,7 @@ $(document).ready(function(){
         $("#privacy").hide();
     });
     $("#p7").click(function(){
-        $("#dash").hide();
+        // $("#dash").hide();
         $("#meminfo").hide();
         $("#attend").hide();
         $("#sched").hide();
