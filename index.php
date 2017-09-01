@@ -1,5 +1,5 @@
 <?php
-// include_once("config.php");
+include_once("config.php");
 
 ?>
 <!DOCTYPE html>
@@ -37,16 +37,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4/js/bootstrap.min.js"></script> -->
    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
   </head>
 
-  <body class="fixed-nav bg-dark" id="page-top">
+  <body onload="viewData()" class="fixed-nav bg-dark" id="page-top" >
 
    <?php include("includes/navigation.html"); ?>
 
     <div class="content-wrapper py-3">
 
-      <?php include("includes/main.html"); ?>
+      <?php include("includes/main.php"); ?>
 
     </div>
     <!-- /.content-wrapper -->
@@ -111,7 +111,7 @@
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
@@ -138,6 +138,7 @@ $(function () {
 // function toggler(divId) {
 //     $("#" + divId).toggle();
 // }
+
 
 </script>
   </body>

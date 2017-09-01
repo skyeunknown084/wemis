@@ -1,3 +1,33 @@
+//INSERT FUNCTIONS
+function saveData(){
+    var name = $('#nm').val();
+    var email = $('#em').val();
+    var phone = $('#hp').val();
+    var address = $('#al').val();
+    $.ajax({
+        type: "POST",
+        url: "server.php?p=add",
+        data: "nm="+name+"&em="+email+"&hp="+phone+"&al="+address,
+        success: function(data){
+            // alert('Success insert data');
+            viewData();
+        }
+    });
+}
+
+//GET LIST FUNCTIONS
+function viewData(){
+    $.ajax({
+        type: "GET",
+        url: "server.php",
+        success: function(data){
+            $('tbody').html(data);
+        }
+    });
+}
+
+
+//NAVIGATIONS
 $(document).ready(function(){
         // $("#dash").show();
 		// $("#meminfo").hide();

@@ -62,7 +62,7 @@ $(document).ready(function(){
       hide_message();
     }, 8000);
   }
-  Hide message
+  // Hide message
   function hide_message(){
     $('#message').html('').attr('class', '');
     $('#message_container').hide();
