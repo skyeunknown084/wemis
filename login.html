@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ndmApp">
+
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>NDM Builders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.0.3.min.js"></script>
+
+    <!-- Loading -->
+    <link rel="stylesheet" type="text/css"  href="css/loader.css" >
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+     <!-- AngularJS -->
+    <script src="angularjs/1.4.8/angular.min.js"></script>
+
+    <script>
+      var ndmApp = angular.module('ndmApp',[]);
+    </script>
+
+  </head>
+
+  <body class="bg-dark" ng-controller="loginCtrl">
+
+    <div class="container">
+
+      <div class="card card-login mx-auto mt-5">
+        <div class="card-header">
+          Login
+        </div>
+        <div class="card-body">
+          <form class="form-horizontal" name="myForm" novalidate>
+              <!-- <h1>Sign In</h1> -->
+              <div class="form-group">
+                      <label for="username" class="sr-only">Username</label>
+                      <div class="input-group"> 
+                        <span class="input-group-addon btn-pink"><i class="fa fa-user fa-fw"></i></span>                            
+                        <input type="text" class="form-control" name="username" id="username" ng-model="username" placeholder="Username" />
+                  </div><br/>
+              <div class="form-group">
+                      <label for="password" class="sr-only">Password</label>
+                      <div class="input-group"> 
+                        <span class="input-group-addon  btn-pink"><i class="fa fa-key fa-fw"></i></span>
+                        <input type="password" class="form-control input-xs pull-center" id="password" name="password" ng-model="password" placeholder="Password" minlength="4" required/>
+                      </div>
+                      <div class="col-sm-11 labelred pull-center" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+                  <span ng-show="myForm.password.$error.required">*</span>
+                  <span ng-show="myForm.password.$error.required">Minimum of 4 charaters only</span>
+                </div>
+                  </div>
+              <br/>
+            <div class="">
+              <button type="button" name="Login" class="form-control input-xs btn btn-primary" value="Login" ng-click="login()">
+              Login<img class="pull-right" id="loginloader" ng-show="loadingloader" src="img/loaders/4.gif" style="display:none height: 20px; width: 20px; margin: 3px; "></button>
+              <!-- <input type="button" name="Login" class="col-xs-6 col-xs-offset-3 btn-pink btnlogin" value="Login" ng-click="login()" style="float:left;height:32px;width:50%;" />  -->
+            </div>
+            <!-- <div class="col-xs-12 col-xs-offset-2 text-left forgot">
+              <a data-toggle="modal" href="forgot_password.html" class="forgot" data-target="#recovery_form"><b>Forgot your Password?</b></a>
+            </div> -->
+          </form>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="register.html">Register an Account</a>
+            <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    <div class="loading" ng-if="loader">Loading&#8230;</div>
+    <!-- AngularJS Script -->
+    <script type="text/javascript" src="angularjs/controllers/loginCtrl.js"></script>
+    <script type="text/javascript" src="angularjs/service/loginService.js"></script>
+    
+
+    <!-- Native JavaScript -->
+    <script type="text/javascript" src="js/functions/global_variables.js"></script>
+    <script type="text/javascript" src="js/functions/login.js"></script>
+  </body>
+
+</html>

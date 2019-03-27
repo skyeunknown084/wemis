@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ndmApp">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- ANGULARJS -->
+    <script src="angularjs/1.4.8/angular.min.js"></script> 
+    <script type="text/javascript" src="angularjs/1.4.8/angular-validation-match.js"></script>
+
+    <script>
+      var ndmApp = angular.module('ndmApp',['validation.match']);
+    </script>
+
+  </head>
+
+  <body class="bg-dark" ng-controller="adminCtrl">
+
+    <div class="container">
+
+      <div class="card card-register mx-auto mt-5">
+        <div class="card-header">
+          Register an Account
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="exampleInputName">First name</label>
+                  <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter first name"  name="firstname" ng-model="firstname">
+                </div>
+                <div class="col-md-6">
+                  <label for="exampleInputLastName">Last name</label>
+                  <input type="text" class="form-control" id="exampleInputLastName" aria-describedby="nameHelp" placeholder="Enter last name" name="lastname" ng-model="lastname">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <!-- <div class="col-md-6">
+                  <label for="exampleInputEmail1">Middle name</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" ng-model="email">
+                </div> -->
+                <div class="col-md-6">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" ng-model="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="exampleInputEmail1">Username</label>
+                  <input type="text" class="form-control" id="exampleInputUserName1" aria-describedby="userHelp" placeholder="Enter Username" name="usernameInput" ng-model="usernameInput">
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd" ng-model="pwd" ng-minlength="4" ng-maxlength="20" required>
+                  <!-- <span style="color:red" ng-show="myForm.pwd.$dirty && myForm.pwd.$invalid">
+                    <span class="labelred" ng-show="myForm.pwd.$error.required">Password Required</span>
+                    <span class="labelred" ng-show="myForm.pwd.$error.minlength">Minimum of 4 charaters only</span>
+                  </span> -->
+                </div>
+                <div class="col-md-6">
+                  <label for="exampleConfirmPassword">Confirm password</label>
+                  <input type="password" class="form-control" id="exampleConfirmPassword" placeholder="Confirm password" name="confirmPwd" ng-model="formData.confirmPwd"  required>
+                  <!-- <span class="labelred" ng-show="myForm.confirmPwd.$dirty && myForm.confirmPwd.$invalid">
+                    <span ng-show="myForm.confirmPwd.$error.required">Confirm Password Required</span>
+                    <span ng-show="myForm.confirmPwd.$error.minlength">Minimum of 4 charaters only</span>
+                    <span ng-show="myForm.confirmPwd.$error.match">Password does not match</span>
+                  </span> -->
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" ng-click="signUp()">Register</button>
+          </form>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="login.html">Login Page</a>
+            <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- AngularJS Script -->
+    <script type="text/javascript" src="angularjs/controllers/adminCtrl.js"></script>
+    <script type="text/javascript" src="angularjs/service/adminService.js"></script>
+
+    <!-- Native JavaScript -->
+    <script type="text/javascript" src="js/functions/global_variables.js"></script>
+    <!-- <script type="text/javascript" src="js/functions/login.js"></script> -->
+  </body>
+
+</html>

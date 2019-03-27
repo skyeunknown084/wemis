@@ -1,0 +1,494 @@
+﻿<div >
+	<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+	<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Box Settings</h4>
+				</div>
+				<div class="modal-body">
+					 Here goes box setting content.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->
+	<div class="container">
+		<div class="row">
+			<div id="content" class="col-lg-12">
+				<!-- PAGE HEADER-->
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="page-header">
+							<!-- STYLER -->
+							<!-- /STYLER -->
+							<!-- BREADCRUMBS -->
+							<ul class="breadcrumb">
+								<li>
+								<i class="fa fa-home"></i>
+								<a href="index.html">Home</a>
+								</li>
+								<li>
+								<a href="#">Skin Care Product</a>
+								</li>
+								<li>
+								<a href="#">CSV Converter</a>
+								</li>
+							</ul>
+							<!-- /BREADCRUMBS -->
+							<div class="clearfix">
+								<h3 class="content-title pull-left">CSV Converter</h3>
+							</div>
+							<!-- <hr style="color: pink;" /> -->
+							</div>
+							<ul class="nav nav-pills">
+								<li class="active"><a class="btn" data-toggle="pill" data-target="#manualCsv">History</a></li>
+								<li class=""><a class="btn" data-toggle="pill" data-target="#fileCsv">Excel File Converter</a></li>
+								<li><a class="btn" data-toggle="pill" data-target="#uploadImg">Skincare Product Photos</a></li>
+								<!-- <li><a class="btn" data-toggle="pill" data-target="#uploadZip">Complete File onBeforeUploadItem</a></li> -->
+								<button class="btn btn-info pull-right" data-toggle="modal" data-target="#helpModal" ng-model="show"><i class="fa fa-question-circle fa-1x" aria-hidden="true"></i></button>
+							</ul>
+							<div class="tab-content" style="height: 1000px;">
+								<br/>
+								<div id="manualCsv" class="tab-pane fade in active">
+									<!-- <iframe id="manualCsvUp" width="1080" height="400" src="excel-to-db/index.html" frameborder="0"></iframe> -->
+									<!-- <button class="btn btn-success pull-right"> Refresh</button><br/><br/> -->
+									<table class="table">
+											<thead>
+											<tr>
+												<th width="50%">
+													Name
+												</th>
+												
+												<th>
+													Actions
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr ng-repeat=" item in rawSCAP" ng-if="$index > 0">
+												<td>
+													{{item}}
+												</td>
+												
+												<td nowrap>
+													<!-- <button type="button" class="btn btn-success btn-xs" >
+													<span class="glyphicon glyphicon-upload"></span> Upload </button>
+													<button type="button" class="btn btn-warning btn-xs">
+													<span class="glyphicon glyphicon-ban-circle"></span> Cancel </button>
+													<button type="button" class="btn btn-danger btn-xs" >
+													<span class="glyphicon glyphicon-trash"></span> Remove </button> -->
+													<button type="button" class="btn btn-success btn-xs" ng-click="OpenLink(item)" >
+			                                        <span class="glyphicons glyphicons-stats"></span> Report
+			                                    	</button>
+												</td>
+											</tr>
+											</tbody>
+											</table>
+								</div>
+
+								<div uploader="uploader" filters="queueLimit, customFilter" id="fileCsv" class="tab-pane fade">
+									<div class="col-md-12">
+										<!-- <div class="form-group"><br>
+											<input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-default" /><br>
+    	  									<input type="submit" value="Upload Excel" name="submit" class="btn" ng-click="saveToDB()" />
+    	  									<input type="button" value="Save to DB" name="button" ng-show="saveExcel" class="btn"  />
+										</div> -->
+										<div class="col-md-4">
+											<!--  <h3>Select files</h3>
+                    <div ng-show="uploader.isHTML5">
+                        <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
+                            Base drop zone
+                        </div>
+                        <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
+                            <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well my-drop-zone">
+                                Another drop zone with its own settings
+                            </div>
+                        </div>
+                    </div> -->
+											<!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+											<br/>
+											<!-- Single <input type="file" nv-file-select="" class="btn btn-default" uploader="uploader"/> -->
+											Excel to DB Upload
+                    <input type="file" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm, .xls, .xlt, .xls, .xlr" nv-file-select="" class="btn btn-default" uploader="uploader" multiple  /><br/>
+                    <button class="btn btn-primary" ng-click="uploadAll(item.id)">Save All to SCP</button><br/><br/>
+										</div>
+										<div class="col-md-8 col-md-offset-2" style="margin-bottom: 40px">
+											<table class="table">
+											<thead>
+											<tr>
+												<th width="50%">
+													Name
+												</th>
+												<th ng-show="uploader.isHTML5">
+													Size
+												</th>
+												<th ng-show="uploader.isHTML5">
+													Progress
+												</th>
+												<th>
+													Status
+												</th>
+												<th>
+													Actions
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr ng-repeat="item in uploader.queue">
+												<td>
+													<strong>{{ item.file.name }}</strong>
+												</td>
+												<td ng-show="uploader.isHTML5" nowrap>
+													{{ item.file.size/1024/1024|number:2 }} MB
+												</td>
+												<td ng-show="uploader.isHTML5">
+													<div class="progress" style="margin-bottom: 0;">
+														<div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }">
+														</div>
+													</div>
+												</td>
+												<td class="text-center">
+													<span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+													<span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+													<span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+												</td>
+												<td nowrap>
+													<button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+													<span class="glyphicon glyphicon-upload"></span> Upload </button>
+													<button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+													<span class="glyphicon glyphicon-ban-circle"></span> Cancel </button>
+													<button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+													<span class="glyphicon glyphicon-trash"></span> Remove </button>
+													<button type="button" ng-show="item.isSuccess" class="btn btn-success btn-xs" ng-click="OpenLink(item.file.name)">
+			                                        <span class="glyphicons glyphicons-stats"></span> Report
+			                                    	</button>
+												</td>
+											</tr>
+											</tbody>
+											</table>
+										</div>
+										<div class="col-md-12">
+											<div>
+												 Queue progress:
+												<div class="progress" style="">
+													<div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }">
+													</div>
+												</div>
+											</div>
+											<button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+											<span class="glyphicon glyphicon-upload"></span> Upload all </button>
+											<button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+											<span class="glyphicon glyphicon-ban-circle"></span> Cancel all </button>
+											<button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+											<span class="glyphicon glyphicon-trash"></span> Remove all </button>
+										</div>
+									</div>
+								</div>
+								<!-- <br/><br/><br/><br/><br/><br/><br/> -->
+								
+								<!------ photo gallery --->
+								
+								
+								
+								<div uploader="uploader2" filters="queueLimit, customFilter" id="uploadImg" class="tab-pane fade">
+											
+							
+								<br><br>
+									<div class="col-md-12">
+										<!-- <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/> -->
+										<!-- <img id="prev" src="https://goo.gl/Yh5VBF" alt="Upload Image To Preview" width="100" height="100" style="height: 100px; width: 100px;"/><br> -->
+										<div class="panel col-md-6">
+											<br/>
+											<input class="btn btn-primary" type="file" nv-file-select="" uploader="uploader2" multiple accept=".zip,.rar,image/*" name="resFile" id="resFile" onchange="document.getElementById('prev').src=window.URL.createObjectURL(this.files[0])" style="float: right;margin-top: -5px;margin-left:25px;width: 100%;">
+											<a href="" data-toggle="modal" data-target="#helpphotoupload" style="color:pink; align:right;"><h3><i class="fa fa-question-circle" aria-hidden="true" style="float: right;margin-top: -30px;width:8%;"></i></h3></a>
+											</br>
+
+											<input type="text" value="" ng-model="filename" style="display: none; float: right; margin-right: 300px">
+										
+										</div>
+									<br> <br>
+										<!-- </div> -->
+										<!-- <div class="col-md-8 col-md-offset-2" style="margin-bottom: 40px"> -->
+										<div class="table-responsive" style="overflow-y:800px;">
+											<table class="table">
+											<thead>
+											<tr>
+												<th width="50%">
+													Name
+												</th>
+												<th ng-show="uploader2.isHTML5">
+													Size
+												</th>
+												<th ng-show="uploader2.isHTML5">
+													Progress
+												</th>
+												<th>
+													Status
+												</th>
+												<th>
+													Actions
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr ng-repeat="item2 in uploader2.queue">
+												<td>
+													<strong>{{ item2.file.name }}</strong>
+													<!-- Image preview -->
+													<!--auto height-->
+													<!--<div ng-thumb="{ file: item.file, width: 100 }"></div>-->
+													<!--auto width-->
+													<!-- <img id="prev" src="https://goo.gl/Yh5VBF" alt="Upload Image To Preview" width="100" height="100" style="height: 100px; width: 100px;"/> -->
+													<!-- <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div> -->
+													<!--fixed width and height -->
+													<!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+												</td>
+												<td ng-show="uploader2.isHTML5" nowrap>
+													{{ item2.file.size/1024/1024|number:2 }} MB
+												</td>
+												<td ng-show="uploader2.isHTML5">
+													<div class="progress" style="margin-bottom: 0;">
+														<div class="progress-bar" role="progressbar" ng-style="{ 'width': item2.progress + '%' }">
+														</div>
+													</div>
+												</td>
+												<td class="text-center">
+													<span ng-show="item2.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+													<span ng-show="item2.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+													<span ng-show="item2.isError"><i class="glyphicon glyphicon-remove"></i></span>
+												</td>
+												<td nowrap>
+													<button type="button" class="btn btn-success btn-xs" ng-click="item2.upload();Uploaded()" ng-disabled="item2.isReady || item2.isUploading || item2.isSuccess">
+													<span class="glyphicon glyphicon-upload"></span> Upload </button>
+													<button type="button" class="btn btn-warning btn-xs" ng-click="item2.cancel()" ng-disabled="!item2.isUploading">
+													<span class="glyphicon glyphicon-ban-circle"></span> Cancel </button>
+													<button type="button" class="btn btn-danger btn-xs" ng-click="item2.remove()">
+													<span class="glyphicon glyphicon-trash"></span> Remove </button>
+													
+												</td>
+											</tr>
+											</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div>
+											 Queue progress:
+											<div class="progress" style="">
+												<div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader2.progress + '%' }">
+												</div>
+											</div>
+										</div>
+										<button type="button" class="btn btn-success btn-s" ng-click="uploader2.uploadAll();Uploaded()" ng-disabled="!uploader2.getNotUploadedItems().length">
+										<span class="glyphicon glyphicon-upload"></span> Upload all </button>
+										<button type="button" class="btn btn-warning btn-s" ng-click="uploader2.cancelAll()" ng-disabled="!uploader2.isUploading">
+										<span class="glyphicon glyphicon-ban-circle"></span> Cancel all </button>
+										<button type="button" class="btn btn-danger btn-s" ng-click="uploader2.clearQueue()" ng-disabled="!uploader2.queue.length">
+										<span class="glyphicon glyphicon-trash"></span> Remove all </button>
+										<button type="button" ng-show="hasUploaded()"class="btn btn-success btn-s" ng-click="OpenPhotoUploadResult()" ng-disabled="uploader2.getNotUploadedItems().length">
+										<span class="glyphicon glyphicons-stats"></span> Uploaded Photo Report Logs </button>
+
+									</div>
+								</div>
+
+								
+							</div>
+						</div>
+					</div>
+					<!-- /PAGE HEADER -->
+					<!-- SAMPLE -->
+					<!-- 	<div class="row">
+					<div class="col-md-12">
+						BOX
+						<div class="box pink">
+							<div class="box-title">
+								<div class="tools">
+								<div id="search-bar">
+									<input class="search" type="text" placeholder="Search"><i class="fa fa-search search-icon"></i>
+								</div>
+								</div>
+							</div>
+							<div class="box-body">
+								<div class="row">
+									<div class="col-md-4">
+									</div>
+								</div>
+							</div>
+						</div>
+						/BOX
+					</div>
+				</div> -->
+					<!-- /SAMPLE -->
+					<div class="footer-tools">
+						<span class="go-top">
+						<i class="fa fa-chevron-up"></i> Top </span>
+					</div>
+				</div>
+				<!-- /CONTENT-->
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  	<div class="modal-content">
+			<div class="modal-header">
+		  		<button type="button" class="close" data-dismiss="modal" ng-click="ClrTxtBox(pName)" aria-hidden="true">&times;</button>
+		  		<h4 class="modal-title">Help</h4>
+			</div>
+			<div class="modal-body">
+			
+			<form class="form-horizontal" name="addForm" id="formClear">
+				<div class="form-group" ng-show="show==1">
+					<label for="nameField" class="col-xs-12 text-left labelname">History</label>
+					<div class="panel col-xs-12">
+						<br/>
+						<p class="labelname">
+							<b> Table Report.</b> Display all the history upload for Excel File Converter and Upload Photos tab in table form. 
+							<br/><br/>
+							<img ng-src="img/csv/1.JPG" style="width:100%">
+							<br/><br/>
+						</p>						
+					</div>
+					<button class="btn btn-primary pull-right" ng-click="show=2"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+						<!-- <button class="btn btn-default pull-right" >Cancel</button> -->
+				</div>
+				<div class="form-group" ng-show="show==2">
+					<label for="nameField" class="col-xs-12 text-left labelname">History</label>
+					<div class="panel col-xs-12">
+						<br/>
+						<p class="labelname">
+							<b> Report </b> Create another tab to display the report for the specific file selected.
+							<br/><br/>
+							<img ng-src="img/csv/2.JPG" style="width:100%">
+							<br/><br/>
+							<b>Note: </b>The URL format will look like this for example
+							(http://project.calcomp.idv.tw:3456/Mirror/api/src/displayReport.php?filename=scp_upload_20170728.hst)
+						</p>						
+					</div>
+					<div class="col-lg-12">
+						<button class="btn btn-primary pull-left" ng-click="show=1"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+						<button class="btn btn-primary pull-right" ng-click="show=3"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+					</div>
+						<!-- <button class="btn btn-default pull-right" >Cancel</button> -->
+				</div>
+				<div class="form-group" ng-show="show==3">
+					<label for="nameField" class="col-xs-10 pull-center labelname">Excel File Converter</label>
+					<div class="panel col-xs-12">
+						<br/>
+					<p class="labelname">
+							<b>Step 1. </b> Choose file/s to be uploaded with in the new window that popup. Use Excel format (.xlsx) extension only.
+							<br/><br/>
+							<img ng-src="img/csv/csv_excel_upload_1.JPG" style="width: 100%;">
+							<br/><br/>
+						</p>
+					</div>
+					<div class="col-lg-12">
+						<button class="btn btn-primary pull-left" ng-click="show=2"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+						<button class="btn btn-primary pull-right" ng-click="show=4"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+					</div>
+				</div>
+				<div class="form-group" ng-show="show==4">
+					<label for="nameField" class="col-xs-10 pull-center labelname">Excel File Converter</label>
+					<div class="panel col-xs-12">
+						<br/>
+						<p class="labelname">
+							<b>Step 2. </b> Click the Upload button in Actions column of the provided table. This will upload the file to the temporary table in the database. <br/><br/>
+							<img ng-src="img/csv/csv_excel_upload_2.JPG" style="width: 100%;">
+							<br/><br/>
+							<b>Step 3. </b> When the progress bar finish. The file/s successfully uploaded. Check the file/s to the Skincare Product List <br/><br/>
+							
+						</p>
+					</div>
+					<div class="col-lg-12">
+						<button class="btn btn-primary pull-left" ng-click="show=3"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+						<button class="btn btn-primary pull-right" ng-click="show=5"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+					</div>
+				</div>
+				<!-- <div class="form-group" ng-show="show==5">
+					<label for="nameField" class="col-xs-10 pull-center labelname">Excel File Converter</label>
+					<div class="panel col-xs-12">
+						<br/>
+					<p class="labelname">
+							<b>Step 3. </b> After clicking the upload button. You can now click the Upload to SCP button to automatically upload the data from temporary table. 
+							<br/><br/>
+							<img ng-src="img/csv/csv_excel_upload_3.JPG" style="width: 100%;">
+							<br/><br/>
+							<b>Step 4. </b> After the loading progress. You can now check the data from the file/s uploaded in Skincare Product Management under Product List tab. 
+						</p>
+					</div>
+					<div class="col-lg-12">
+						<button class="btn btn-primary pull-left" ng-click="show=4"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+						<button class="btn btn-primary pull-right" ng-click="show=6"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+					</div>
+				</div> -->
+				<div class="form-group" ng-show="show==5">
+					<label for="nameField" class="col-xs-4 text-left labelname">Upload Photos</label>
+					<div class="panel col-xs-12">
+						<br/>
+						<p class="labelname">
+							<b>Step 1. </b> Choose file/s to be uploaded from your local directory. Use the following extension noted below the input choose files button <br/><br/>
+							<img ng-src="img/csv/csv_photo_upload_1.JPG" style="width: 100%;">
+							<br/><br/>
+						</p>						
+					</div>
+					<div class="col-lg-12">
+						<button class="btn btn-primary pull-left" ng-click="show=4"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+						<button class="btn btn-primary pull-right" ng-click="show=6"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+					</div>
+				</div>
+				<div class="form-group" ng-show="show==6">
+					<label for="nameField" class="col-xs-4 text-left labelname">Upload Photos</label>
+					<div class="panel col-xs-12">
+						<br/>
+						<p class="labelname">
+							<b>Step 2. </b> Click the Upload/Upload All in Actions column of the provided table. This will upload the file/s directly to the blob (upload_photos) folder were the database photo/s are store. <br/><br/>
+							<img ng-src="img/csv/csv_photo_upload_2.JPG" style="width: 100%;">
+							<br/><br/>
+							<b>Step 3. </b> When the progress bar finish. The photo/s successfully uploaded. Check the photo/s to the Skincare Product List <br/><br/>
+						</p>						
+					</div>
+					<div class="col-lg-12 ">
+						<button class="btn btn-primary pull-left" ng-click="show=5"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+		  <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> -->
+		  <button type="button" class="btn btn-primary" id="saveClear" data-dismiss="modal">OK</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+   <!-------- modal for photo upload ----->
+	<div class="modal fade" id="helpphotoupload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			  <h4 class="modal-title">Help</h4>
+			</div>
+			<div class="modal-body">
+				<p><h3>Photo Upload can only accept the following:</h3></p>
+											<br>
+											<p>Zip file containing PNG images! </p>
+											<br>
+											<p>Rar file containing PNG images!</p>
+											<br>
+											<p>Plain PNG image file!</p>
+											<br>
+											<p>150 PNG images only! </p>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+			</div>
+		  </div>
+		</div>
+	</div>

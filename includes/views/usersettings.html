@@ -1,0 +1,167 @@
+
+<div class="container" id="usersett">
+	<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a href="#">Member Settings</a>
+    </li>
+    <!-- <li class="breadcrumb-item active nav-item tabClicker" data-tab="tabs-1">Profile</li> -->
+    <!-- <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-1">Member Info</li>
+    <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-2">Attendance</li>
+    <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-3">Schedule</li>
+    <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-4">Salary</li> -->
+    </ol>
+
+	<div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i>
+            List of Members
+          </div>
+          <div class="card-body">
+            <div id="page_container">
+
+      <!-- <h1>Largest IT companies by revenue</h1> -->
+
+      <button type="button" class="btn btn-default" id="add_company" data-toggle="modal" data-target="#addModal">Add company</button>
+      <div class="table-responsive">
+        <table lass="table table-bordered" width="100%" class="dataTable" cellspacing="0" id="table_companies">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Functions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+      </div>
+      
+
+    </div>
+
+    <!-- <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Company</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" >
+            <form class="form add" id="form_company" data-id="" novalidate>
+          <div class="input_container">
+            <label for="rank">Rank: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="number" step="1" min="0" class="text" name="rank" id="rank" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="company_name">Company name: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="text" class="text" name="company_name" id="company_name" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="industries">Industries: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="text" class="text" name="industries" id="industries" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="revenue">Revenue: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="number" step="1" min="0" class="text" name="revenue" id="revenue" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="fiscal_year">Fiscal year: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="number" min="0" class="text" name="fiscal_year" id="fiscal_year" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="employees">Employees: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="number" min="0" class="text" name="employees" id="employees" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="market_cap">Market cap: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="number" step="1" min="0" class="text" name="market_cap" id="market_cap" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="headquarters">Headquarters: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="text" class="text" name="headquarters" id="headquarters" value="" required>
+            </div>
+          </div>
+          <div class="button_container">
+            <button type="submit">Add company</button>
+          </div>
+        </form>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary button_container" data-dismiss="modal">Add Company</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!--  <div class="lightbox_container">
+      <div class="lightbox_close"></div>
+      <div class="lightbox_content">
+        
+        <h2>Add company</h2>
+        
+        
+      </div>
+    </div> -->
+            <!-- <button class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add</button>
+            <br/><br/>
+            <div class="table-responsive">
+              <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>ID Number</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tfoot class="hidden">
+                  <tr>
+                   <th>ID Number</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td>Sakura Yamamoto</td>
+                    <td>Project Engineer</td>
+                    <td>CS RD BU</td>
+                    <td class="col-xs-1">
+                    	<button class="btn btn-primary"><i class="fa fa-eye"></i></button>
+                    	<button class="btn btn-secondary"><i class="fa fa-pencil"></i></button>
+                    	<button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div> -->
+          </div>
+          <div class="card-footer small text-muted">
+            Updated yesterday at 11:59 PM
+          </div>
+        </div>
+</div>

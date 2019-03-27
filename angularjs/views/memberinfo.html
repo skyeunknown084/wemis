@@ -1,0 +1,111 @@
+<div class="container-fluid" id="meminfo">
+  
+  <div class="row"><br/></div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h6 class="card-title mb-1 large">
+          <a href="#" class="col-xs-10">
+          <h4>{{lname}}, {{fname}} {{mname}}</h4>
+          </a>
+          <span class="pull-right"><input type="checkbox" name="" ng-model="editInfo"> <ic class="fa fa-pencil"></i> Edit</span>
+          
+          </h6>
+          <br/>
+          <br/>
+          <!-- <p class="card-text medium">
+                <medium>Role </medium> : <b>Project Engineer</b><br/>
+                <medium>Email </medium> : <b>jeff_wellings@gmail.com</b><br/>
+                <medium>Home Address </medium> : <b>123 East 169th Street Apt. 2A Bronx, NY 10456</b>
+            </p> -->
+          <form>
+            <div class="form-group">
+              <label>Role : </label>
+              <input type="text" class="form-control" name="role" ng-model="usertype" readonly>
+            </div>
+            <div class="form-group">
+              <label>Email : </label>
+              <input type="email" class="form-control" name="email" ng-model="email" ng-readonly="!editInfo">
+            </div>
+            <div class="form-group">
+              <label>Age : </label>
+              <input type="text" class="form-control" name="age" ng-model="age" ng-readonly="!editInfo">
+            </div>
+            <div class="form-group">
+              <label>Gender : </label>
+              <input type="text" class="form-control" name="address" ng-model="gender" ng-readonly="!editInfo">
+            </div>
+            <div class="form-group">
+              <label>Status : </label>
+              <input type="text" class="form-control" name="status" ng-model="status" ng-readonly="!editInfo">
+            </div>
+            <div class="form-group">
+              <label>Nationality : </label>
+              <input type="text" class="form-control" name="nationality" ng-model="citizen" ng-readonly="!editInfo">
+            </div>
+            <div class="form-group">
+              <label>Birthdate : </label>
+              <input type="date" class="form-control" name="birthday" ng-value="bday" ng-readonly="!editInfo">
+            </div>
+            <div class="form-group">
+              <label>Home Address : </label>
+               <textarea rows="2" cols="25" class="form-control" style="border-radius: 5px; height: 50px;" ng-model="address" ng-readonly="!editInfo"></textarea>
+            </div>
+            <div class="form-group">
+              <label>SSS : </label>
+              <input type="text" class="form-control" name="sss" ng-model="sss" readonly>
+            </div>
+            <div class="form-group">
+              <label>TIN : </label>
+              <input type="text" class="form-control" name="tin" ng-model="tin" readonly>
+            </div>
+          </form>
+        </div>
+        <hr class="my-0">
+        <div class="card-body py-2 small">
+          <a class="mr-3 d-inline-block" href="#">
+          <i class="fa fa-fw fa-facebook"></i>
+          Facebook </a>
+          <a class="mr-3 d-inline-block" href="#">
+          <i class="fa fa-fw fa-envelope"></i>
+          Gmail </a>
+          <a class="d-inline-block" href="#">
+          <i class="fa fa-fw fa-yahoo"></i>
+          Yahoo! </a>
+        </div>
+        <div class="card-footer small text-muted">
+           Updated 1 hr ago
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 pull-right">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="col-xs-1 text-center" style="align-content: center;">
+            <img src="img/user1.png">
+          </div>
+          <br/>
+          <h6 class="card-title mb-1">
+          <a href="#">COMPANY PROFILE</a>
+          </h6>
+          <p class="card-text medium">
+            NDM Builders Aim to delivered service with quality and exellence.
+          </p>
+          <h6 class="card-title mb-1">
+          <a href="#">INSTRUCTIONS</a>
+          </h6>
+          <p class="card-text medium">
+            <small>To Update Personal Information</small>
+            <ol class="small">
+              <li>Click the Pencil button on the upper right side of the information panel</li>
+            </ol>
+          </p>
+        </div>
+        <hr class="my-0" />
+        <div class="card-body py-2 small">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,311 @@
+<div class="container" id="usersett">
+	<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a href="#">Member Settings</a>
+    </li>
+    <!-- <li class="breadcrumb-item active nav-item tabClicker" data-tab="tabs-1">Profile</li> -->
+    <!-- <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-1">Member Info</li>
+    <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-2">Attendance</li>
+    <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-3">Schedule</li>
+    <li class="breadcrumb-item active nav-item tabClickers" data-tab="tabs-4">Salary</li> -->
+    </ol>
+
+	 <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i>
+            List of Employees
+          </div>
+          <div class="card-body">
+          
+          <div class="" ng-show="activepage=='mainpage'">
+            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#addEmpModal"><i class="fa fa-plus"></i> Add</button><br/><br/>
+            <div class="table-responsive">
+              <table ng-table="" class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Emp ID</th>
+                    <th>Username</th>
+                    <th>User Role</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tfoot class="hidden">
+                  <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>User Role</th>
+                    <th>Actions</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr ng-repeat="item in employeeList">
+                    <td>{{item.emp_id}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.usertype}}</td>
+                    <td>
+                      <button class="btn btn-info fa fa-pencil" ng-click="editUser(item.id);"></button>
+                      <button class="btn btn-danger fa fa-trash-o"></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="" ng-show="activepage=='editpage'">
+            <div class="card mb-3" style="box-shadow: red;">
+            <div class="card-body">
+            <form class="form-horizontal" name="addForm2" id="formClear">
+              <fieldset>
+              <legend>
+                <button class="btn btn-success fa fa-arrow-left pull-right" ng-click="cancelEdit()"></button><br/>                
+              </legend>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                <div class="form-group" >
+                  <label class="text-right labelname">ID: {{emp_idEdit}}</label><br/><br/>
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-2 text-right labelname">*First Name: </label>
+                  <input type="text" class="form-control input-group dark-red" ng-model="pCate" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="text-right labelname">*Last Name: </label>
+                  <input type="text" class="form-control" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Middle Name: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Email Address: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Status: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Nationality: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                
+              </div>
+              <div class="col-md-5 pull-right">
+                <div class="form-group" >
+                  <label class="col-xs-1 text-right labelname"></label><br/><br/>
+                </div>
+                <div class="form-group">
+                    <label for="nameField" class="col-xs-1 text-right labelname">*Age: </label>
+                    <input type="number" class="form-control" ng-model="pSubj" />
+                </div>
+                <div class="form-group">
+                    <label for="nameField" class=" text-right labelname">*Gender: </label>
+                    <select class="pull-right btn btn-info dropdown-toggle dropdown-toggle-split" ng-model="column" name="column" ng-required="true" required style="width: 55%; margin-left:55px; float: right; ">
+                      <option value="scpid">Female</option>
+                      <option value="brandname">Male</option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Home Address: </label>
+                  <textarea rows="2" cols="25" class="form-control" style="border-color: #ff8080; color:#FF1493; border-radius: 5px; height: 50px;" ng-model="pCont"></textarea>
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Birthdate: </label>
+                  <input type="text" id="date" class="form-control input-xs" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="" placeholder="DD-MM-YYYY">
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">SSS Number: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                <label for="nameField" class="col-xs-4 text-right labelname">TIN Number: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                
+              </div>
+              <div class="col-md-1">
+                
+              </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-9 pull-right"></div>
+                <button class="btn btn-danger pull-right">Save to Update</button>
+              </div>
+              </fieldset>
+            </form>
+            </div>
+            </div>
+            
+          </div>
+
+          <div class="" ng-show="activepage=='addpage'">
+            <div class="card mb-3" style="box-shadow: red;">
+            <div class="card-body">
+            <form class="form-horizontal" name="addForm2" id="formClear">
+              <fieldset>
+              <legend>
+                <button class="btn btn-success fa fa-arrow-left pull-right" ng-click="cancelEdit()"></button><br/>                
+              </legend>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                <div class="form-group" >
+                  <label class="text-right labelname">ID: {{emp_idEdit}}</label><br/><br/>
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-2 text-right labelname">*First Name: </label>
+                  <input type="text" class="form-control input-group dark-red" ng-model="pCate" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="text-right labelname">*Last Name: </label>
+                  <input type="text" class="form-control" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Middle Name: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Email Address: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Status: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Nationality: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                
+              </div>
+              <div class="col-md-5 pull-right">
+                <div class="form-group" >
+                  <label class="col-xs-1 text-right labelname"></label><br/><br/>
+                </div>
+                <div class="form-group">
+                    <label for="nameField" class="col-xs-1 text-right labelname">*Age: </label>
+                    <input type="number" class="form-control" ng-model="pSubj" />
+                </div>
+                <div class="form-group">
+                    <label for="nameField" class=" text-right labelname">*Gender: </label>
+                    <select class="pull-right btn btn-info dropdown-toggle dropdown-toggle-split" ng-model="column" name="column" ng-required="true" required style="width: 55%; margin-left:55px; float: right; ">
+                      <option value="scpid">Female</option>
+                      <option value="brandname">Male</option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Home Address: </label>
+                  <textarea rows="2" cols="25" class="form-control" style="border-color: #ff8080; color:#FF1493; border-radius: 5px; height: 50px;" ng-model="pCont"></textarea>
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">*Birthdate: </label>
+                  <input type="text" id="date" class="form-control input-xs" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="" placeholder="DD-MM-YYYY">
+                </div>
+                <div class="form-group" >
+                  <label for="nameField" class="col-xs-4 text-right labelname">SSS Number: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <div class="form-group" >
+                <label for="nameField" class="col-xs-4 text-right labelname">TIN Number: </label>
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                
+              </div>
+              <div class="col-md-1">
+                
+              </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-9 pull-right"></div>
+                <button class="btn btn-danger pull-right">Save to Update</button>
+              </div>
+              </fieldset>
+            </form>
+            </div>
+            </div>
+            
+          </div>
+
+          </div>
+          <div class="card-footer small text-muted">
+            Updated yesterday at 11:59 PM
+          </div>
+        </div>
+  
+</div>
+
+<div class="modal fade" id="addEmpModal" tabindex="-1" role="dialog" aria-labelledby="addEmpModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="overflow-y: auto;">
+            <form class="form-horizontal" name="addForm2" id="formClear">
+              <div class="form-group" >
+                <label for="nameField" class="col-xs-4 text-right labelname">First Name: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pCate" />
+                </div><br/>
+                <label for="nameField" class="col-xs-4 text-right labelname">Last Name: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div><br/>
+                <label for="nameField" class="col-xs-4 text-right labelname">Middle Name: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div><br/>
+                <div class="form-group">
+                  <label for="nameField" class="col-xs-3 text-right labelname">Age: </label>
+                  <input type="text" class="input-xs col-xs-3" ng-model="pSubj" />
+                  <label for="nameField" class="col-xs-3 text-right labelname">Gender: </label>
+                  <select class="pull-right btn btn-info dropdown-toggle dropdown-toggle-split" ng-model="column" name="column" ng-required="true" required style="margin-left:55px; float: right; ">
+                    <option value="scpid">Female</option>
+                    <option value="brandname">Male</option>
+                  </select>
+                </div>
+                <label for="nameField" class="col-xs-4 text-right labelname">Home Address: </label>
+                <div class="col-xs-4">
+                  <textarea rows="2" cols="25" class="form-control" style="border-color: #FF69B4; color:#FF1493; border-radius: 5px; height: 50px;" ng-model="pCont"></textarea>
+                </div><br/>
+                <h3>Combodate</h3>
+<div style="margin: 50px">
+  <input type="text" id="date" data-format="MM/DD/YYYY" data-template="MMM / D / YYYY" value="11/12/2003" />
+</div>
+<button type="button">test</button>
+                <label for="nameField" class="col-xs-4 text-right labelname">Email Address: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <label for="nameField" class="col-xs-4 text-right labelname">Status: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <label for="nameField" class="col-xs-4 text-right labelname">Nationality: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <label for="nameField" class="col-xs-4 text-right labelname">SSS Number: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+                <label for="nameField" class="col-xs-4 text-right labelname">TIN Number: </label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-xs" ng-model="pSubj" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-primary" href="login.html">Histoy</a>
+          </div>
+        </div>
+      </div>
+    </div>
